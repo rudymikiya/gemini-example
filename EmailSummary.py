@@ -1,3 +1,4 @@
+import json
 import os
 
 from langchain.output_parsers import PydanticOutputParser
@@ -24,15 +25,27 @@ os.environ["GOOGLE_API_KEY"] = api_key
 
 class EmailSummary(BaseModel):
     # fromEmail: str = Field(description="The email address of the sender")
-    # toEmails: set[str] = Field(description="The email addresses of the recipients")
+    # toEmails: str = Field(description="The email addresses of the recipients")
     # fileName: str = Field(description="The name of the email file")
     summary: str = Field(description="The summary of the email")
 
 
+# find the from and to email addresses from the email
+def find_recipient_by_line_start(email: str, line_start: str) -> str:
+    for line in email.splitlines():
+        if line.startswith(line_start):
+            return line.split(":")[1].strip()
+
+
+# write the email summaries to a json file
+def write_email_summaries(email_summaries: list, output_file: str):
+    with open(output_file, "w") as file:
+        file.write(json.dumps(email_summaries))
+
+
 if __name__ == "__main__":
     email_root_dir = "emails"
-    sample_files = []
-    email_content = []
+    email_summaries = []
     model = ChatGoogleGenerativeAI(
         model="models/gemini-1.5-flash-latest")
     for root, dirs, files in os.walk(email_root_dir):
@@ -40,6 +53,8 @@ if __name__ == "__main__":
             file_path = os.path.join(root, file)
             loader = TextLoader(file_path)
             data = loader.load()
+            fromEmail = find_recipient_by_line_start(data[0].page_content, "From:")
+            toEmail = find_recipient_by_line_start(data[0].page_content, "To:")
             text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
             all_splits = text_splitter.split_documents(data)
             vectorstore = FAISS.from_documents(documents=all_splits,
@@ -48,17 +63,23 @@ if __name__ == "__main__":
             parser = PydanticOutputParser(pydantic_object=EmailSummary)
             template = """Summarize this email based only on the following context:
             {context}
-            
+
             The result format: {resultFormat}
             """
             prompt = ChatPromptTemplate.from_template(template)
             retrieval_chain = (
-                    {"context": vectorstore.as_retriever(), "fileName": lambda x: file, "resultFormat": RunnablePassthrough()}
+                    {"context": vectorstore.as_retriever(),
+                     "resultFormat": RunnablePassthrough()}
                     | prompt
                     | model
                     | parser
             )
 
-            data = retrieval_chain.invoke("Generate a json object as result."
-                                          " Summarize this email and put it into 'summary' field. ")
-            print(data)
+            res = retrieval_chain.invoke("Generate a json object as result."
+                                         " Summarize this email and put it into 'summary' field. ")
+            print(res)
+            email_summaries.append(
+                {"fromEmail": fromEmail, "toEmails": toEmail, "fileName": file, "summary": res.summary})
+
+
+    write_email_summaries(email_summaries, "./out/email_summaries.json")
