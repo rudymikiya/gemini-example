@@ -37,7 +37,7 @@ def get_file_name_from_summary(_model: ChatGoogleGenerativeAI) -> str:
             {context}
 
             Request: {request}
-            Only return the fileName is enough.
+            Must return one and only return the fileName is enough.
             """
     _prompt = ChatPromptTemplate.from_template(_template)
 
