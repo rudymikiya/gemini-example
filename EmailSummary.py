@@ -38,9 +38,9 @@ def find_recipient_by_line_start(email: str, line_start: str) -> str:
 
 
 # write the email summaries to a json file
-def write_email_summaries(email_summaries: list, output_file: str):
-    with open(output_file, "w") as file:
-        file.write(json.dumps(email_summaries))
+def write_email_summaries(_email_summaries: list, output_file: str):
+    with open(output_file, "w") as _file:
+        _file.write(json.dumps(_email_summaries))
 
 
 if __name__ == "__main__":
@@ -80,6 +80,5 @@ if __name__ == "__main__":
             print(res)
             email_summaries.append(
                 {"fromEmail": fromEmail, "toEmails": toEmail, "fileName": file, "summary": res.summary})
-
 
     write_email_summaries(email_summaries, "./out/email_summaries.json")

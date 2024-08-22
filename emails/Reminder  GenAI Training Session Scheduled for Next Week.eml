@@ -1,0 +1,94 @@
+Return-Path: <training@email.com>
+Received: from [192.168.1.5] ([192.168.1.5])
+        by smtp.gmail.com with ESMTPSA id d2e1a72fcca58-7143422ebe7sm255846b3a.14.2024.08.21.17.39.50
+        for <rudy@email.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Aug 2024 17:39:51 -0700 (PDT)
+From: training@email.com
+X-Google-Original-From: training@email.com
+Content-Type: multipart/alternative;
+ boundary="------------fULyQLrmEPUbeXbMxDVNWEJZ"
+Message-ID: <f0705d5e-68b7-4e5c-9ee3-65d7fa082b7a@email.com>
+Date: Thu, 22 Aug 2024 08:38:11 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: rudy@email.com
+Subject: Reminder: GenAI Training Session Scheduled for Next Week
+
+This is a multi-part message in MIME format.
+--------------fULyQLrmEPUbeXbMxDVNWEJZ
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+*Hi Team,*
+
+I hope this message finds you well. I'm writing to remind you about the 
+upcoming GenAI training session that we've scheduled for next week. Here 
+are the details:
+
+  * *Training Topic:* Introduction to Generative AI and Practical
+    Applications
+  * *Date and Time:* August 28, 2024, 2:00 PM - 4:00 PM
+  * *Location:* Conference Room B (or Virtual via Zoom)
+  * *Trainer:* Dr. Emily Carter, AI Specialist
+
+During this session, we'll cover the basics of Generative AI, its 
+applications in various industries, and how we can leverage these 
+technologies to enhance our projects. The training will be interactive, 
+with a mix of theory and hands-on exercises.
+
+This session is crucial for anyone involved in AI-driven projects or 
+looking to expand their skill set in this rapidly growing field. Please 
+make sure to mark your calendars and come prepared with any questions 
+you might have.
+
+If you haven't yet confirmed your attendance, kindly do so by replying 
+to this email by the end of the day.
+
+Looking forward to seeing you there!
+
+Best regards,
+Learning and Development Coordinator
+
+--------------fULyQLrmEPUbeXbMxDVNWEJZ
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p><strong>Hi Team,</strong></p>
+    <p>I hope this message finds you well. I'm writing to remind you
+      about the upcoming GenAI training session that we've scheduled for
+      next week. Here are the details:</p>
+    <ul>
+      <li><strong>Training Topic:</strong> Introduction to Generative AI
+        and Practical Applications</li>
+      <li><strong>Date and Time:</strong> August 28, 2024, 2:00 PM -
+        4:00 PM</li>
+      <li><strong>Location:</strong> Conference Room B (or Virtual via
+        Zoom)</li>
+      <li><strong>Trainer:</strong> Dr. Emily Carter, AI Specialist</li>
+    </ul>
+    <p>During this session, we'll cover the basics of Generative AI, its
+      applications in various industries, and how we can leverage these
+      technologies to enhance our projects. The training will be
+      interactive, with a mix of theory and hands-on exercises.</p>
+    <p>This session is crucial for anyone involved in AI-driven projects
+      or looking to expand their skill set in this rapidly growing
+      field. Please make sure to mark your calendars and come prepared
+      with any questions you might have.</p>
+    <p>If you haven't yet confirmed your attendance, kindly do so by
+      replying to this email by the end of the day.</p>
+    <p>Looking forward to seeing you there!</p>
+    <p>Best regards,<br>
+      Learning and Development Coordinator</p>
+    <p></p>
+  </body>
+</html>
+
+--------------fULyQLrmEPUbeXbMxDVNWEJZ--

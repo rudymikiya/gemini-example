@@ -22,61 +22,71 @@ os.environ["GOOGLE_API_KEY"] = api_key
 
 # write the email summaries to a json file
 def write_retrieval(retrieval: str, output_file: str):
-    with open(output_file, "w") as file:
-        file.write(retrieval)
+    with open(output_file, "w") as _file:
+        _file.write(retrieval)
 
 
-question = "I want the know the information about 'HOSTDARE'"
+question = "I want the know the details about Production Issue"
 
-if __name__ == "__main__":
-    model = ChatGoogleGenerativeAI(
-        model="models/gemini-1.5-flash-latest")
-    with open("out/summary.md", 'r') as file:
+
+def get_file_name_from_summary(_model: ChatGoogleGenerativeAI) -> str:
+    with open("out/summary.md", 'r') as _file:
         # Load the JSON data from the file
-        summary = file.read()
-    template = """Below are some email summaries, each item is a file name + its summary. Please return the fileName according to the Request:
+        _summary = _file.read()
+    _template = """Below are some email summaries, each item is a file name + its summary. Please return the fileName according to the Request:
             {context}
 
             Request: {request}
             Only return the fileName is enough.
             """
-    prompt = ChatPromptTemplate.from_template(template)
+    _prompt = ChatPromptTemplate.from_template(_template)
 
-    retrieval_chain = (
-            {"context": lambda x: summary,
+    _retrieval_chain = (
+            {"context": lambda x: _summary,
              "request": RunnablePassthrough()}
-            | prompt
-            | model
+            | _prompt
+            | _model
     )
 
-    res = retrieval_chain.invoke(question);
-    most_likely_file_name = res.content
-    print(res.content)
+    _res = _retrieval_chain.invoke(question)
+    _most_likely_file_name = _res.content
+    print("Most likely file name:", _most_likely_file_name)
+    return _most_likely_file_name
 
-    with open("out/email_summaries.json", 'r') as file:
+
+def get_exact_filename(_model: ChatGoogleGenerativeAI, _most_likely_file_name: str) -> str:
+    with open("out/email_summaries.json", 'r') as _file:
         # Load the JSON data from the file
-        json_string = file.read()
-    template = """Below is a list of email summaries and format is a json. Please find the most likely fileName according to the fileName I pass:
+        _json_string = _file.read()
+    _template = """Below is a list of email summaries and format is a json. Please find the most likely fileName according to the fileName I pass:
             {context}
 
             fileName: {fileName}
             Only return the plain fileName is enough.
             """
-    prompt = ChatPromptTemplate.from_template(template)
+    _prompt = ChatPromptTemplate.from_template(_template)
 
-    retrieval_chain = (
-            {"context": lambda x: json_string,
+    _retrieval_chain = (
+            {"context": lambda x: _json_string,
              "fileName": RunnablePassthrough()}
-            | prompt
-            | model
+            | _prompt
+            | _model
     )
 
-    res = retrieval_chain.invoke(most_likely_file_name);
+    _res = _retrieval_chain.invoke(_most_likely_file_name)
+    _file_name = _res.content.strip()
+    print("File name:", _file_name)
+    return _file_name
 
-    print(res.content)
 
-    email_path = "./emails/" + res.content.strip()
+if __name__ == "__main__":
+    model = ChatGoogleGenerativeAI(
+        model="models/gemini-1.5-flash-latest")
 
+    most_likely_file_name = get_file_name_from_summary(model)
+    file_name = get_exact_filename(model, most_likely_file_name)
+
+    email_path = "./emails/" + file_name
     loader = TextLoader(email_path)
     data = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)

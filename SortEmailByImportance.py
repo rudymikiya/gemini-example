@@ -15,10 +15,12 @@ with open('MyApiKey.txt', 'r') as file:
     print(f"API key: {api_key}")
 os.environ["GOOGLE_API_KEY"] = api_key
 
+
 # write the email summaries to a json file
 def write_summary(summary: str, output_file: str):
-    with open(output_file, "w") as file:
-        file.write(summary)
+    with open(output_file, "w") as _file:
+        _file.write(summary)
+
 
 if __name__ == "__main__":
     model = ChatGoogleGenerativeAI(
@@ -30,7 +32,7 @@ if __name__ == "__main__":
             {context}
 
             Treat it as important: {important_criteria}
-            You should response like a secretary and the content is not a json. The start should be like 'These are important the unread emails recently:' and use arabic numerals for list. Put fileName in a new line and seprated with 2 new lines.
+            You should response like a secretary and the content is not a json. The start should be like 'These are important the unread emails recently:' and use arabic numerals for list. Put fileName in a new line and separated with 2 new lines.
             """
     prompt = ChatPromptTemplate.from_template(template)
 
@@ -41,6 +43,6 @@ if __name__ == "__main__":
             | model
     )
 
-    res = retrieval_chain.invoke("from <selfimprovement-space@quora.com> is important.");
+    res = retrieval_chain.invoke("from alex@email.com is important.")
     print(res.content)
     write_summary(res.content, "./out/summary.md")

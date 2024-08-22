@@ -1,0 +1,90 @@
+Return-Path: <sarah@email.com>
+Received: from [192.168.1.5] ([192.168.1.5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-203855871d0sm1828875ad.116.2024.08.21.17.44.19
+        for <rudy@email.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Aug 2024 17:44:20 -0700 (PDT)
+From: sarah@email.com
+X-Google-Original-From: Sarah@email.com
+Content-Type: multipart/alternative;
+ boundary="------------jucTkJPtfUVSgD390uLmJ7h3"
+Message-ID: <2372847f-5ecd-4523-9c18-23ccf8b49b6c@email.com>
+Date: Thu, 22 Aug 2024 08:42:54 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: rudy@email.com
+Subject: Reminder: Upcoming Physical Examination Required Within the Next 6
+ Months
+
+This is a multi-part message in MIME format.
+--------------jucTkJPtfUVSgD390uLmJ7h3
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+*Hi Rudy,*
+
+I hope you're doing well. This is a friendly reminder that your next 
+physical examination is due within the next six months. To ensure we 
+stay on top of your health and well-being, please schedule your 
+appointment at your earliest convenience.
+
+  * *Examination Required:* Annual Physical Examination
+  * *Due Date:* By February 22, 2025
+  * *Location:* [Clinic Name] - [Clinic Address or Virtual Consultation
+    Link]
+
+Please contact the clinic directly at [Clinic Phone Number] to set up 
+your appointment. If you need assistance with scheduling or have any 
+questions about the examination, feel free to reach out to the HR 
+department.
+
+It's important to complete this examination to maintain compliance with 
+our health policies and to ensure that you're in good health.
+
+Thank you for your attention to this matter. Please let me know once 
+you've scheduled your appointment.
+
+Best regards,
+Sarah Lee
+HR Coordinator
+
+--------------jucTkJPtfUVSgD390uLmJ7h3
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  </head>
+  <body>
+    <p><strong>Hi Rudy,</strong></p>
+    <p>I hope you're doing well. This is a friendly reminder that your
+      next physical examination is due within the next six months. To
+      ensure we stay on top of your health and well-being, please
+      schedule your appointment at your earliest convenience.</p>
+    <ul>
+      <li><strong>Examination Required:</strong> Annual Physical
+        Examination</li>
+      <li><strong>Due Date:</strong> By February 22, 2025</li>
+      <li><strong>Location:</strong> [Clinic Name] - [Clinic Address or
+        Virtual Consultation Link]</li>
+    </ul>
+    <p>Please contact the clinic directly at [Clinic Phone Number] to
+      set up your appointment. If you need assistance with scheduling or
+      have any questions about the examination, feel free to reach out
+      to the HR department.</p>
+    <p>It's important to complete this examination to maintain
+      compliance with our health policies and to ensure that you're in
+      good health.</p>
+    <p>Thank you for your attention to this matter. Please let me know
+      once you've scheduled your appointment.</p>
+    <p>Best regards,<br>
+      Sarah Lee<br>
+      HR Coordinator</p>
+    <p></p>
+  </body>
+</html>
+
+--------------jucTkJPtfUVSgD390uLmJ7h3--

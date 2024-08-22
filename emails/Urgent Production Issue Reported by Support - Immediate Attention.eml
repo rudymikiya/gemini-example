@@ -1,0 +1,107 @@
+Return-Path: <John@email.com>
+Received: from [192.168.1.5] ([192.168.1.5])
+        by smtp.gmail.com with ESMTPSA id d9443c01a7336-2038557e4f9sm1742505ad.65.2024.08.21.17.31.18
+        for <rudy@email.com>
+        (version=TLS1_3 cipher=TLS_AES_128_GCM_SHA256 bits=128/128);
+        Wed, 21 Aug 2024 17:31:19 -0700 (PDT)
+From: John@email.com
+X-Google-Original-From: John@email.com
+Content-Type: multipart/alternative;
+ boundary="------------D3cGchSI4tmz0S3NZhR1oH8i"
+Message-ID: <b282afc2-2917-4f70-894c-77dece89cb20@email.com>
+Date: Thu, 22 Aug 2024 08:29:54 +0800
+MIME-Version: 1.0
+User-Agent: Mozilla Thunderbird
+To: rudy@email.com
+Subject: Urgent: Production Issue Reported by Support - Immediate Attention
+ Required
+
+This is a multi-part message in MIME format.
+--------------D3cGchSI4tmz0S3NZhR1oH8i
+Content-Type: text/plain; charset=UTF-8; format=flowed
+Content-Transfer-Encoding: 7bit
+
+*Hi Rudy,*
+
+I hope you're doing well. I wanted to bring to your immediate attention 
+a production issue that has been reported by Asher from our support 
+team. The details are as follows:
+
+  * *Issue Reported:* Users are unable to complete transactions due to a
+    "Payment Gateway Timeout" error.
+  * *Environment:* Production
+  * *Date and Time of Occurrence:* August 22, 2024, 10:45 AM
+  * *Impact:* Users are unable to complete purchases, leading to
+    potential revenue loss.
+  * *Steps to Reproduce:*
+     1. User adds items to the cart.
+     2. Proceeds to checkout.
+     3. Payment fails with a timeout error on the gateway.
+
+Asher has noted that this issue is affecting approximately 500 users and 
+has a critical impact on our operations. The support team is currently 
+handling customer queries related to this, but we need an urgent fix to 
+prevent further disruption.
+
+Please prioritize this and provide an update on the resolution as soon 
+as possible.
+
+If you need any additional information, feel free to reach out to Asher 
+or me directly.
+
+Thanks for your prompt attention to this matter.
+
+Best regards,
+John
+Technical Lead
+
+--------------D3cGchSI4tmz0S3NZhR1oH8i
+Content-Type: text/html; charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Urgent: Production Issue Reported by Support - Immediate
+      Attention Required</title>
+  </head>
+  <body>
+    <p><strong>Hi Rudy,</strong></p>
+    <p>I hope you're doing well. I wanted to bring to your immediate
+      attention a production issue that has been reported by Asher from
+      our support team. The details are as follows:</p>
+    <ul>
+      <li><strong>Issue Reported:</strong> Users are unable to complete
+        transactions due to a "Payment Gateway Timeout" error.</li>
+      <li><strong>Environment:</strong> Production</li>
+      <li><strong>Date and Time of Occurrence:</strong> August 22, 2024,
+        10:45 AM</li>
+      <li><strong>Impact:</strong> Users are unable to complete
+        purchases, leading to potential revenue loss.</li>
+      <li><strong>Steps to Reproduce:</strong>
+        <ol>
+          <li>User adds items to the cart.</li>
+          <li>Proceeds to checkout.</li>
+          <li>Payment fails with a timeout error on the gateway.</li>
+        </ol>
+      </li>
+    </ul>
+    <p>Asher has noted that this issue is affecting approximately 500
+      users and has a critical impact on our operations. The support
+      team is currently handling customer queries related to this, but
+      we need an urgent fix to prevent further disruption.</p>
+    <p>Please prioritize this and provide an update on the resolution as
+      soon as possible.</p>
+    <p>If you need any additional information, feel free to reach out to
+      Asher or me directly.</p>
+    <p>Thanks for your prompt attention to this matter.</p>
+    <p>Best regards,<br>
+      John<br>
+      Technical Lead</p>
+    <p></p>
+  </body>
+</html>
+
+--------------D3cGchSI4tmz0S3NZhR1oH8i--
