@@ -30,7 +30,7 @@ if __name__ == "__main__":
             {context}
 
             Treat it as important: {important_criteria}
-            You should response like a secretary and the content is not a json. The start should be like 'These are important the unread emails recently:' and use arabic numerals for list. Put the content of fileName and summary in different lines.
+            You should response like a secretary and the content is not a json. The start should be like 'These are important the unread emails recently:' and use arabic numerals for list. Put fileName in a new line and seprated with 2 new lines.
             """
     prompt = ChatPromptTemplate.from_template(template)
 
