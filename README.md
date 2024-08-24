@@ -8,3 +8,6 @@
 
 The demos are from the sharing from https://github.com/XingYu-Zhong/LangChainStudy/tree/master 
 Thanks for sharing
+
+About how vector store works, can see https://medium.com/@AndresHerranz/llms-langchain-and-vectorstores-2489a2ea1ef1
+![langchain vector store](./doc/snapshot.png)
