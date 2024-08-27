@@ -1,8 +1,7 @@
 import os
 
 from langchain_community.document_loaders import TextLoader
-from langchain_core.prompts import ChatPromptTemplate
-from langchain_core.runnables import RunnablePassthrough
+from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 
@@ -24,14 +23,21 @@ if __name__ == "__main__":
     data = loader.load()
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=3000, chunk_overlap=0)
     all_splits = text_splitter.split_documents(data)
-    template = """You are a helpful translator. You can translate the Japanese to Chinese. Just replace the Japanese with Chinese and don't change other contents. The contents only include Japanese and English, don't include other language. Please don't add any seperator or metadata in response. Please only return the content of 'page_content'. Below are the contents to translate:
-                {context}
 
-                """
-    prompt = ChatPromptTemplate.from_template(template)
+    template = """You are a helpful translator. You can translate the Japanese to Chinese. 
+    Just replace the Japanese with Chinese and don't change other language.
+    Please don't add any seperator or metadata in response. """
+    system_message_prompt = SystemMessagePromptTemplate.from_template(template)
+    human_template = "{text}"
+    human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
+
+    # template = """Please only return the content of 'page_content'. Below are the contents to translate:
+    #             {context}
+    #
+    #             """
+    prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
     retrieval_chain = (
-            {"context": RunnablePassthrough()}
-            | prompt
+            prompt
             | llm
     )
 
@@ -44,7 +50,7 @@ if __name__ == "__main__":
     #     model="models/gemini-1.5-flash-latest"))
     with open("b.srt", 'w') as file:
         for split in all_splits:
-            res = retrieval_chain.invoke(split)
+            res = retrieval_chain.invoke({"text": split.page_content})
             print(res.content, sep="", end="")
             file.write(res.content)
     # llm = ChatGoogleGenerativeAI(model="models/gemini-1.5-flash-latest")
