@@ -21,7 +21,7 @@ if __name__ == "__main__":
 
     loader = TextLoader("a.wav.srt", encoding="utf-8")
     data = loader.load()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=3000, chunk_overlap=0)
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
     all_splits = text_splitter.split_documents(data)
 
     template = """You are a helpful translator. You can translate the Japanese to Chinese. 
