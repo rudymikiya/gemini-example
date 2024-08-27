@@ -1,9 +1,7 @@
 import os
 
-from langchain_community.document_loaders import TextLoader
 from langchain_core.prompts import ChatPromptTemplate, SystemMessagePromptTemplate, HumanMessagePromptTemplate
 from langchain_google_genai import ChatGoogleGenerativeAI
-from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # Set proxy if it is needed...........
 proxy = 'http://localhost:7897'
@@ -15,14 +13,36 @@ with open('./MyApiKey.txt', 'r') as file:
     print(f"API key: {api_key}")
 os.environ["GOOGLE_API_KEY"] = api_key
 
+
+def split_text(path):
+    current = 0
+    lineNum = 200
+    text = ""
+    all_splits = []
+    with open(path, 'r', encoding="utf-8") as f:
+        line = f.readline()
+        while line:
+            text += line
+            current = current + 1
+            if lineNum == current:
+                all_splits.append(text)
+                text = ""
+                current = 0
+            line = f.readline()
+    return all_splits
+
+
 if __name__ == "__main__":
 
     llm = ChatGoogleGenerativeAI(model="models/gemini-1.5-flash-latest")
 
-    loader = TextLoader("a.wav.srt", encoding="utf-8")
-    data = loader.load()
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
-    all_splits = text_splitter.split_documents(data)
+    all_splits = split_text("./a.wav.srt")
+
+    # chunks = split_text(text, chunk_size)
+    # loader = TextLoader("a.wav.srt", encoding="utf-8")
+    # data = loader.load()
+    # text_splitter = TextSplitter(chunk_size=1000)
+    # all_splits = text_splitter.split_documents(data)
 
     template = """You are a helpful translator. You can translate the Japanese to Chinese. 
     Just replace the Japanese with Chinese and don't change other language.
@@ -50,7 +70,7 @@ if __name__ == "__main__":
     #     model="models/gemini-1.5-flash-latest"))
     with open("b.srt", 'w') as file:
         for split in all_splits:
-            res = retrieval_chain.invoke({"text": split.page_content})
+            res = retrieval_chain.invoke({"text": split})
             print(res.content, sep="", end="")
             file.write(res.content)
     # llm = ChatGoogleGenerativeAI(model="models/gemini-1.5-flash-latest")
